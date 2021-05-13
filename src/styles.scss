@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+@import "normalize.css";
+@import "colors.scss";
+@import "buttons.scss";
+@import "inputs.scss";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.primary {
+    color: #388cb1;
+}
+.warning {
+    color: #ef9a00;
+}
+.danger {
+    color: #c5485f;
+}
+
+a {
+    cursor: pointer;
+}
+
+.container-centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.container {
+    width: 100%;
+    margin: auto;
+    @media (min-width: 1024px) {
+        width: 1024px;
+    }
+}

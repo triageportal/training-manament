@@ -1,0 +1,31 @@
+<div class="modal-overlay"  *ngIf="modal" id="open-modal" [ngClass]="{'open-modal': modalOn}">
+  <div class="modal">
+    <div class="modal-body" [ngClass]="modal.size">
+      <div class="modal-header">
+        <div class="title" [ngClass]="modal.titleType">
+          {{modal.title}}
+        </div>
+        <div>
+          <a href="javascript:void(0)" class="close-btn"  (click)="onButtonClick('closed')"></a>
+        </div>
+      </div>
+      <div class="modal-content">
+        <div *ngIf="modal.description" class="description"></div>
+        <div *ngIf="modal.input" class="input-field primary">
+          <input type="text" class="primary" [(ngModel)]="modalInput" (focus)="onFocus()" (blur)="onBlur()" #inputField>
+          <label for="" [ngClass]="{'active': inputFocus}" (click)="onFocus(); inputField.focus()">{{modal.input}}</label>
+          <span *ngIf="modalInput" class="clear" (click)="clearInput()"></span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button 
+          *ngFor="let button of modal.buttons" 
+          class="btn" 
+          [ngClass] = "button.type" 
+          (click)="onButtonClick(button.name)">
+          {{button.name}}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

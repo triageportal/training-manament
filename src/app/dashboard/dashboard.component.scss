@@ -1,0 +1,146 @@
+$min-width: 120px;
+$maincolor: #6BBE92;  
+$secondarycolor: #3E8760;
+
+@mixin transform($value){
+  -webkit-transform: ($value);
+     -moz-transform: ($value);
+      -ms-transform: ($value);
+          transform: ($value);
+}
+@mixin transition($value){
+  -webkit-transition: ($value);
+     -moz-transition: ($value);
+      -ms-transition: ($value);
+          transition: ($value);
+}
+
+.main-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    .nav {
+        height: 54px;
+        background-color: #388cb1;
+        @media (max-width: 767px) {
+            height: 50px;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            position: relative;
+            .menu {
+                width: 70px;
+                display: inline-block;
+                @media (max-width: 767px) {
+                    width: 63px;
+                }
+                a::before {
+                    cursor: pointer;
+                    content: "";
+                    background-image: url(./../../assets/menu.svg);
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    position: absolute;
+                    top: 50%;
+                    right: 14px;
+                    transform: translate(0, -50%);
+                    width: 34px;
+                    height: 34px;
+                    @media (max-width: 767px) {
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+                a:focus + .dropmenu div {
+                   @include transform(translate(0,0)); 
+                   visibility: visible;
+                }
+                .dropmenu{
+                    overflow: hidden;
+                    list-style: none;
+                    position: absolute;
+                    padding: 0;
+                    min-width: 200px;
+                    top: 56px;
+                    margin: 0;
+                    right: 0;
+                    visibility: hidden;
+                    @media (max-width: 767px) {
+                        top: 52px;
+                    }
+                    div{
+                        background-color: #388cb1;
+                        color: white;
+                        text-transform: capitalize;
+                        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+                        @include transform(translate(0,-1442%));
+                        @include transition(all 0.5s 0.1s);
+                        position: relative;
+                        li{
+                            position: relative;
+                            padding: 15px 20px;
+                            cursor: pointer;
+                            z-index: 5;
+                            margin: 0;
+                            font-size: 18px;
+                            &:hover {
+                                box-shadow: rgba(0, 0, 0, 0.06) 2px 4px 4px 0px inset;
+                                box-shadow: rgba(65, 51, 51, 0.24) 0px 3px 8px;
+                                display: block;
+                                background-color: #6aacca;
+                            }
+                          }
+                    } 
+                  }
+            }
+            .title {
+                flex-grow: 1;
+                color: white;
+                text-align: center;
+                font-size: 22px;
+                @media (max-width: 767px) {
+                    font-size: 20px;
+                }
+            }
+            .back{
+                a{
+                    padding-left: 27px;
+                    color: white;
+                    font-size: 20px;
+                    text-decoration: none;
+                    @media (max-width: 767px) {
+                        font-size: 18px;
+                        padding-left: 24px;
+                    }
+                    &::before {
+                        cursor: pointer;
+                        content: "";
+                        background-image: url(./../../assets/chevron-left-white.svg);
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        position: absolute;
+                        top: 50%;
+                        left: 0;
+                        transform: translate(0, -50%);
+                        width: 34px;
+                        height: 34px;
+                        @media (max-width: 767px) {
+                            width: 30px;
+                            height: 30px;
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+    .content {
+        flex-grow: 1;
+    }
+}
+
+  
+
+ 

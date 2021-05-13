@@ -1,0 +1,30 @@
+<div class="main-container">
+    <div class="nav">
+        <div class="container">
+            <div class="back">
+                <a href="javascript:void(0)" (click)="backClicked()">Back</a>
+            </div>
+            <div class="title">Trali Vali App</div>
+            
+            <div class="menu">
+                <a href="javascript:void(0)"></a>
+                <ul class="dropmenu">
+                   <div>
+                    <li  [routerLink]="['./assign-test']">Assign Test</li>
+                    <li [routerLink]="['./view-progress']">Progress</li>
+                    <li [routerLink]="['./users']">Users</li>
+                    <li [routerLink]="['./checklists']">Checklists</li>
+                    <li [routerLink]="['./']">Contact Us</li>
+                    <li>Logout</li>
+                   </div> 
+                  </ul>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
+    <div class="footer">
+        footer iff needed
+    </div>
+</div>

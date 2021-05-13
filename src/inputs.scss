@@ -1,0 +1,60 @@
+.input-field {
+    text-align: center;
+    position: relative;
+    width: 80%;
+    margin: auto;
+    position: relative;
+
+    @media (max-width: 767px) {
+        width: 90%;
+    }
+    input[type=text] {
+        border: none;
+        border-bottom: 1px solid;
+        width: 100%;
+        font-size: 16px;
+        &:focus:active, &:focus, &:active {
+            outline: none;
+        }
+    }
+
+    label {
+        position: absolute;
+        left: 0;
+        bottom: 14px;
+        text-transform: capitalize;
+        cursor: text;
+        -webkit-transition: color .2s ease-out, -webkit-transform .2s ease-out;
+        transition: color .2s ease-out, -webkit-transform .2s ease-out;
+        transition: transform .2s ease-out, color .2s ease-out;
+        transition: transform .2s ease-out, color .2s ease-out, -webkit-transform .2s ease-out;
+        -webkit-transform-origin: 0% 100%;
+        transform-origin: 0% 100%;
+        text-align: initial;
+        -webkit-transform: translateY(12px);
+        transform: translateY(12px);
+        
+        &.active {
+            -webkit-transform: translateY(-10px) scale(0.8);
+            transform: translateY(-10px) scale(0.8);
+            -webkit-transform-origin: 0 0;
+            transform-origin: 0 0;
+        }
+    }
+    .clear {
+        cursor: pointer;
+        display: block;
+        &::after {
+            content: "";
+            background-image: url(./assets/close-red.svg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: absolute;
+            top: -5px;
+            right: -2px;
+            width: 22px;
+            height: 22px;
+        }
+    }
+}
+
