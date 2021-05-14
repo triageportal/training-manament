@@ -53,10 +53,10 @@ $secondarycolor: #3E8760;
                         height: 30px;
                     }
                 }
-                a:focus + .dropmenu div {
+                /* a:focus + .dropmenu div {
                    @include transform(translate(0,0)); 
                    visibility: visible;
-                }
+                } */
                 .dropmenu{
                     overflow: hidden;
                     list-style: none;
@@ -78,6 +78,11 @@ $secondarycolor: #3E8760;
                         @include transform(translate(0,-1442%));
                         @include transition(all 0.5s 0.1s);
                         position: relative;
+
+                        &.drop {
+                            @include transform(translate(0,0)); 
+                            visibility: visible;
+                        }
                         li{
                             position: relative;
                             padding: 15px 20px;

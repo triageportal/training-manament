@@ -7,15 +7,15 @@
             <div class="title">Trali Vali App</div>
             
             <div class="menu">
-                <a href="javascript:void(0)"></a>
+                <a href="javascript:void(0)" (click)="dropToggle = !dropToggle"></a>
                 <ul class="dropmenu">
-                   <div>
-                    <li  [routerLink]="['./assign-test']">Assign Test</li>
-                    <li [routerLink]="['./view-progress']">Progress</li>
-                    <li [routerLink]="['./users']">Users</li>
-                    <li [routerLink]="['./checklists']">Checklists</li>
-                    <li [routerLink]="['./']">Contact Us</li>
-                    <li>Logout</li>
+                   <div [ngClass]="{'drop': dropToggle}">
+                    <li (click)="dropToggle = !dropToggle" [routerLink]="['./assign-test']">Assign Test</li>
+                    <li (click)="dropToggle = !dropToggle" [routerLink]="['./view-progress']">Progress</li>
+                    <li (click)="dropToggle = !dropToggle" [routerLink]="['./users']">Users</li>
+                    <li (click)="dropToggle = !dropToggle" [routerLink]="['./checklists']">Checklists</li>
+                    <li (click)="dropToggle = !dropToggle" [routerLink]="['./']">Contact Us</li>
+                    <li (click)="dropToggle = !dropToggle">Logout</li>
                    </div> 
                   </ul>
             </div>
