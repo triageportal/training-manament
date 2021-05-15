@@ -54,7 +54,7 @@ export class NewUserComponent implements OnInit {
 
   onSubmit() {
     console.log(this.myForm)
-    this.openErrorModal();
+    /* this.openErrorModal(); */
     /* if (this.myForm.valid) {
       this.loader.show();
       console.log(this.myForm)
@@ -86,15 +86,6 @@ export class NewUserComponent implements OnInit {
     return form.controls['email'].value === form.controls['confEmail'].value ? null : {'mismatch': true};
   }
 
-  closeModal () {
-    //this.clearInput();
-  }
-
-
-  onButtonClick (respond) {
-    this.closeModal ()
-  }
-
   clearInput(control) {
     console.log(this.myForm.controls[control])
     this.myForm.controls[control].reset()
@@ -105,15 +96,10 @@ export class NewUserComponent implements OnInit {
     this.inputFocus = true;
   }
 
-  onBlur () {
-    
-      this.inputFocus = false;
+  onChange(control) {
+    console.log(control);
     
   }
-
-
-
-
 
   openSuccessModal(){
     this.modalService.modalSource.next(this.successModal);
