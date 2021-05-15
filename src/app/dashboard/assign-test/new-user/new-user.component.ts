@@ -1,6 +1,10 @@
+import { ModalService } from './../../../shared/modal/modal.service';
+import { Modal } from './../../../interfaces/modal.interace';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoaderService } from '../../../shared/loader/loader.service';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-new-user',
@@ -19,7 +23,7 @@ export class NewUserComponent implements OnInit {
 
   ]
 
-  constructor(private fb: FormBuilder, public router: Router) { }
+  constructor(private fb: FormBuilder, public router: Router, private loader: LoaderService, private modalService: ModalService) { }
 
   ngOnInit() {
     this.setMyForm();
@@ -50,19 +54,20 @@ export class NewUserComponent implements OnInit {
 
   onSubmit() {
     console.log(this.myForm)
+    this.openErrorModal();
     /* if (this.myForm.valid) {
       this.loader.show();
       console.log(this.myForm)
       this.staffSetupService.submit(this.email.value, this.hash).subscribe(
         result => {
           if (result == 'success') {
-            this.router.navigate(['/login']);
+            this.openSuccessModal();
           }
           this.loader.hide();
         },
         error => {
           this.loader.hide();
-          this.triModalService.triModalStateSource.next(this.modalTryLater);
+          this.openErrorModal();
           console.log(error);
         }
       )
@@ -106,4 +111,41 @@ export class NewUserComponent implements OnInit {
     
   }
 
+
+
+
+
+  openSuccessModal(){
+    this.modalService.modalSource.next(this.successModal);
+    this.modalService.modalResponseObservable.pipe(take(1)).subscribe(
+      result => {
+        console.log(result);
+        
+      }
+    )
+  }
+  openErrorModal(){
+    this.modalService.modalSource.next(this.errorModal);
+    this.modalService.modalResponseObservable.pipe(take(1)).subscribe(
+      result => {
+        console.log(result);
+        
+      }
+    )
+  }
+  successModal: Modal = {
+    size: 'sm',
+    title: 'Test assigned',
+    titleType: 'primary',
+    buttons: [{name: 'ok', type: 'primary'}]
+  }
+
+  errorModal: Modal = {
+    size: 'sm',
+    title: 'Oops!',
+    titleType: 'Primary',
+    description: ['Something went wrong.', 'Please try later!'],
+    descriptionType: 'danger',
+    buttons: [{name: 'ok', type: 'primary'}]
+  }
 }

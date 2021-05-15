@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Modal } from './interfaces/modal.interace';
-import { ModalService } from './modal/modal.service';
+import { ModalService } from './shared/modal/modal.service';
 import { take } from 'rxjs/operators';
 
 @Component({

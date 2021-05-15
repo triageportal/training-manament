@@ -10,7 +10,9 @@
         </div>
       </div>
       <div class="modal-content">
-        <div *ngIf="modal.description" class="description"></div>
+        <div *ngIf="modal.description" class="description" [ngClass] = "modal.descriptionType" >
+          <div *ngFor="let description of modal.description">{{description}}</div>
+        </div>
         <div *ngIf="modal.input" class="input-field primary">
           <input type="text" class="primary" [(ngModel)]="modalInput" (focus)="onFocus()" (blur)="onBlur()" #inputField>
           <label for="" [ngClass]="{'active': inputFocus}" (click)="onFocus(); inputField.focus()">{{modal.input}}</label>
