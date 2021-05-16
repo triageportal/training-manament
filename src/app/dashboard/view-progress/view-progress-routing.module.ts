@@ -1,9 +1,35 @@
+import { ViewProgressComponent } from './view-progress.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { CompletedComponent } from './completed/completed.component';
+import { InprogressComponent } from './inprogress/inprogress.component';
+import { PendingComponent } from './pending/pending.component';
+import { CanceledComponent } from './canceled/canceled.component';
 
-import { ViewProgressComponent } from './view-progress.component';
 
-const routes: Routes = [{ path: '', component: ViewProgressComponent }];
+
+const routes: Routes = [{
+  path: '',
+  component: ViewProgressComponent,
+  children: [
+    {
+      path: 'completed',
+      component: CompletedComponent
+    },
+    {
+      path: 'inprogress',
+      component: InprogressComponent
+    },
+    {
+      path: 'pending',
+      component: PendingComponent
+    },
+    {
+      path: 'canceled',
+      component: CanceledComponent
+    },
+  ]
+ }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

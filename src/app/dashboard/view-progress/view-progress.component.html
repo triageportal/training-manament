@@ -1,1 +1,15 @@
-<p>view-progress works!</p>
+<div class="container">
+    <h2 class="text-center font-400 primary">Assign Test</h2>
+    <div class="progress-wrap">
+        <div class="tabs-header">
+            <div class="tab" [routerLink]="['completed']" routerLinkActive="active">Completed</div>
+            <div class="tab" [routerLink]="['inprogress']" routerLinkActive="active">In Progress</div>
+            <div class="tab" [routerLink]="['pending']" routerLinkActive="active">Pending</div>
+            <div class="tab" [routerLink]="['canceled']" routerLinkActive="active">Canceled</div>
+            <div id="marker"></div>
+        </div>
+        <div class="tabs-content">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
