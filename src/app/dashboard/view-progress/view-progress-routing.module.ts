@@ -13,6 +13,11 @@ const routes: Routes = [{
   component: ViewProgressComponent,
   children: [
     {
+      path: '',
+      redirectTo: 'completed',
+      pathMatch: 'full'
+    },
+    {
       path: 'completed',
       component: CompletedComponent
     },

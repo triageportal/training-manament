@@ -1,0 +1,26 @@
+table {
+    text-align: left;
+    color: #666666;
+
+    th, td {
+        padding: 7px 0 7px 5px;
+        word-break: break-word;
+        &.email {width: 25%;}
+        &.name {width: 25%;}
+        &.test {width: 20%;}
+        &.assigned {width: 15%;}
+        &.canceled {width: 15%;}
+    }
+    th {
+        font-size: 15px;
+        border-bottom: 1px solid #eef1f2;
+    }
+    td {
+        font-size: 14px;
+    }
+    tr {
+        &.odd {
+            background-color: #eef1f2;
+        }
+    }
+}
