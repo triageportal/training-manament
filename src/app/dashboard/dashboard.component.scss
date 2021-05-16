@@ -67,6 +67,7 @@ $secondarycolor: #3E8760;
                     margin: 0;
                     right: 0;
                     visibility: hidden;
+                    z-index: 100;
                     @media (max-width: 767px) {
                         top: 52px;
                     }
