@@ -24,7 +24,7 @@
         <span *ngIf="myForm.errors.mismatch && confEmail.value">Email mismatch</span>
       </div>
       <div class="input-field primary">
-        <select id="test" formControlName="test" (focus)="onFocus(); testOnFocus = true" #testOption>
+        <select class="capitalize" id="test" formControlName="test" (focus)="onFocus(); testOnFocus = true" #testOption>
           <option selected value="" disabled></option>
           <option *ngFor="let testItem of tests; let i=index" value="{{testItem.id}}">{{testItem.name}}</option>
         </select>
@@ -36,7 +36,7 @@
     </form>
   </div>
   <div class="links">
-      <button class="btn primary" (click)="onSubmit()" [disabled]="myForm.invalid">Submit</button>
-      <button class="btn danger"  (click)="onCancel()">Cancel</button>
+      <button class="btn primary tooltip" data-tooltip="Complete all fields" (click)="onSubmit()" [disabled]="myForm.invalid">Submit</button>
+      <button class="btn danger" [routerLink]="['../']">Cancel</button>
   </div>
 </div>

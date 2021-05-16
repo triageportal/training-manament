@@ -18,7 +18,9 @@ body {
 .danger {
     color: #c5485f;
 }
-
+.bg-danger {
+    background-color: #f08484;
+}
 .text-center {
     text-align: center;
 }
@@ -44,4 +46,8 @@ a {
     @media (min-width: 1024px) {
         width: 1024px;
     }
+}
+
+.capitalize {
+    text-transform: capitalize;
 }

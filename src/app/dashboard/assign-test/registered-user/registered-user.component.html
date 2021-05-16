@@ -1,3 +1,32 @@
-<p>
-  registered-user works!
-</p>
+
+
+<div class="container">
+  <h2 class="text-center font-400 primary">Assign Test</h2>
+  <div class="input-fields">
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()" novalidate autocomplete="off">    
+      
+      <div class="input-field primary">
+        <select id="email" formControlName="email" (focus)="onFocus(); emailOnFocus = true">
+          <option selected value="" disabled></option>
+          <option *ngFor="let user of users; let i=index" value="{{user.id}}">{{user.name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{user.email}}</option>
+        </select>
+        <label for="email" [ngClass]="{'active': email.value}">Select user</label>
+        <span class="clear select" *ngIf="email.value" (click)="clearInput('email')"></span>
+      </div>
+      <div class="input-field primary">
+        <select id="test" class="capitalize" formControlName="test" (focus)="onFocus(); testOnFocus = true">
+          <option selected value="" disabled></option>
+          <option *ngFor="let testItem of tests; let i=index" value="{{testItem.id}}">{{testItem.name}}</option>
+        </select>
+        <label for="test" [ngClass]="{'active': test.value}">Select test</label>
+        <span class="clear select" *ngIf="test.value" (click)="clearInput('test')"></span>
+      </div>
+
+
+    </form>
+  </div>
+  <div class="links">
+      <button class="btn primary tooltip t-danger" data-tooltip="Complete all fields" (click)="onSubmit()" [disabled]="myForm.invalid">Submit</button>
+      <button class="btn danger" [routerLink]="['../']">Cancel</button>
+  </div>
+</div>

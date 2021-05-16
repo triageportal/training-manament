@@ -1,3 +1,4 @@
+import { Test } from './../../../interfaces/test.interface';
 import { ModalService } from './../../../shared/modal/modal.service';
 import { Modal } from './../../../interfaces/modal.interace';
 import { Component, OnInit } from '@angular/core';
@@ -17,7 +18,7 @@ export class NewUserComponent implements OnInit {
   emailOnFocus = false;
   confEmailOnFocus = false;
   testOnFocus = false;
-  tests = [
+  tests: Test[] = [
     {name: 'menu', id: 1},
     {name: 'managment', id: 2},
 
