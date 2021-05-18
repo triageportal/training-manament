@@ -1,3 +1,15 @@
-<p>
-  user-search works!
-</p>
+<div class="container">
+  <h2 class="text-center font-400 primary">Users</h2>
+  <div class="input-fields">
+      <div class="input-field primary">
+          <input type="text" class="primary" [(ngModel)]="userName" (focus)="onFocus(); inputFocus = true" (blur)="onBlur()" #inputField>
+          <label for="name" [ngClass]="{'active': inputFocus}" (click)="onFocus(); inputField.focus()">Search user</label>
+          <span *ngIf="userName" class="clear" (click)="clearInput()"></span>
+      </div>
+      <div class="search-results" *ngIf="users && users.length>0">
+          <ul>
+              <li *ngFor="let user of users" [routerLink]="['../userdetails']" [queryParams]="{ name: user.name, id: user.id, email: user.email }">{{user.name}}</li>
+          </ul>
+      </div>
+  </div>
+</div>
