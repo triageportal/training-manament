@@ -1,0 +1,56 @@
+.user {
+    padding: 0 30px;
+    @media (max-width: 767px) {
+        padding: 0 16px;
+    }
+
+    .user-details {
+        display: flex;
+        margin-top: 50px;
+        justify-content: space-between;
+        div {
+            margin-right: 30px;
+        }
+        .edit-delete {
+            display: flex;
+            .edit {
+                position: relative;
+                span{
+                    width: 50px;
+                    display: inline-block;
+                    &::before {
+                        content: "";
+                        background-image: url(./../../../../assets/edit-3.svg);
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        position: absolute;
+                        top: 0px;
+                        left: 50%;
+                        transform: translate(-50%);
+                        width: 22px;
+                        height: 22px;
+                    }
+                }
+            }
+            .delete {
+                position: relative;
+                span {
+                    width: 60px;
+                    display: inline-block;
+                    &::before {
+                        content: "";
+                        background-image: url(./../../../../assets/trash-pink-2.svg);
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        position: absolute;
+                        top: 0px;
+                        left: 50%;
+                        transform: translate(-50%);
+                        width: 22px;
+                        height: 22px;
+                    }
+                }
+            }
+        }
+    }
+}

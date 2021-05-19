@@ -71,3 +71,34 @@ input:-webkit-autofill {
     -webkit-box-shadow:0 0 0 50px white inset; 
     -webkit-text-fill-color: #388cb1;
 }
+
+.tooltip-primary {
+    position: relative;
+    &:hover::before {
+        content: attr(data-tooltip);
+        position: absolute;
+        top: -35px;
+        text-align: center;
+        left: 50%;
+        transform: translate(-50%);
+        background-color: #388cb1;
+        color: white;
+        font-size: 14px;
+        padding: 5px 7px;
+        border-radius: 2px;
+    }
+    &:hover::after{
+        content: "";
+        position: absolute;
+        top: -9px;
+        text-align: center;
+        left: 50%;
+        transform: translate(-50%);
+        width: 0; 
+        height: 0; 
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid #388bc1;
+    }
+}
+
