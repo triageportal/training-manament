@@ -53,4 +53,33 @@
             }
         }
     }
+
+    .tests-history {
+        margin-top: 50px;
+        table {
+            text-align: left;
+            color: #666666;
+            width: 100%;
+            th, td {
+                padding: 7px 0 7px 5px;
+                word-break: break-word;
+                &.test {width: 35%;}
+                &.status {width: 25%;}
+                &.assigned {width: 15%;}
+                &.completed {width: 15%;}
+            }
+            th {
+                font-size: 15px;
+                border-bottom: 1px solid #eef1f2;
+            }
+            td {
+                font-size: 14px;
+            }
+            tr {
+                &.odd {
+                    background-color: #eef1f2;
+                }
+            }
+        }
+    }
 }
