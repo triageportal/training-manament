@@ -8,11 +8,21 @@
         display: flex;
         margin-top: 50px;
         justify-content: space-between;
-        div {
-            margin-right: 30px;
+
+        
+        .name {
+            display: flex;
+            div:first-child {
+                margin-right: 30px;
+                margin-bottom: 5px;
+            }
+            @media (max-width: 767px) {
+                display: block;
+            }
         }
         .edit-delete {
             display: flex;
+            align-items: center;
             .edit {
                 position: relative;
                 span{

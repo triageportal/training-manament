@@ -21,7 +21,8 @@ export class UserDetailsComponent implements OnInit {
   }
 
   setUser() {
-    this.user.name = this.route.snapshot.queryParams['name'];
+    this.user.firstname = this.route.snapshot.queryParams['firstname'];
+    this.user.lastname = this.route.snapshot.queryParams['lastname'];
     this.user.email = this.route.snapshot.queryParams['email'];
     this.user.id = this.route.snapshot.queryParams['id'];
   }

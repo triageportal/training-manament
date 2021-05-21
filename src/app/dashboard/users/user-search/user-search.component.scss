@@ -3,7 +3,7 @@
     flex-direction: column;
     height: 100%;
     .input-fields {
-        margin-top: 10%;
+        margin-top: 5%;
         flex-grow: 1;
         .input-field {
             width: 50%;
@@ -56,5 +56,49 @@
     }
     @media (max-width: 767px) {
         width: 80%;   
+    }
+}
+
+.userslist {
+    width: 60%;
+    margin: 20px auto;
+    .user {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 9px;
+        &.even {
+            background-color: #f7f7f7;
+        }
+        .actions {
+            display: flex;
+            height: 20px;
+            a {
+                width: 22px;
+                margin: 0 10px;
+                position: relative;
+                &::before {
+                    content: "";
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    position: absolute;
+                    top: 0px;
+                    left: 50%;
+                    transform: translate(-50%);
+                    width: 22px;
+                    height: 22px;
+                }
+                &.checklist::before {
+                    background-image: url(./../../../../assets/list.svg);
+                }
+                &.test::before {
+                    background-image: url(./../../../../assets/edit.svg);
+                }
+                &.more::before {
+                    background-image: url(./../../../../assets/more-horizontal.svg);
+                }
+
+            }
+        }
     }
 }

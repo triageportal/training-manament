@@ -10,9 +10,9 @@ export class UserSearchComponent implements OnInit {
   userName = '';
   inputFocus = false;
   users: User[] = [
-    {name: 'Ana Johns', email: 'ajohns@gmail.com', id: 1},
-    {name: 'John Doe', email: 'john_doe@gmail.com', id: 2},
-    {name: 'John Carlos', email: 'juan.carlos@gmail.com', id: 3},
+    {firstname: 'Ana', lastname: 'Johns', email: 'ajohns@gmail.com', id: 1},
+    {firstname: 'John', lastname: 'Doe', email: 'john_doe@gmail.com', id: 2},
+    {firstname: 'John', lastname: 'Carlos', email: 'juan.carlos@gmail.com', id: 3},
   ];
 
   constructor() { }

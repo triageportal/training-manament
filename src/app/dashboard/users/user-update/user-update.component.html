@@ -1,3 +1,50 @@
-<p>
-  user-update works!
-</p>
+
+<div class="container">
+  <h2 class="text-center font-400 primary">User Update </h2>
+  <div class="input-fields">
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()" novalidate autocomplete="off">    
+      <div class="input-field primary">
+        <input type="text" id="firstname" class="text-gray"  (focus)="onFocus(); firstnameOnFocus = true" (blur)="firstnameOnFocus = false" formControlName="firstname" required #firstnameInput>
+        <label for="firstname" [ngClass]="{'active': firstname.value || firstnameOnFocus}">Firstname</label>
+        <span class="clear" *ngIf="firstname.value" (click)="clearInput('firstname')"></span>
+      </div>
+      <div *ngIf="firstname.errors && (firstname.dirty || firstname.touched )" class="form-error danger">
+        <span *ngIf="firstname.errors.required">Firstname required</span>
+      </div>
+      <div class="input-field primary">
+        <input type="text" id="lastname" class="text-gray"  (focus)="onFocus(); lastnameOnFocus = true" (blur)="lastnameOnFocus = false" formControlName="lastname" required #lastnameInput>
+        <label for="lastname" [ngClass]="{'active': lastname.value || lastnameOnFocus}">Lastname</label>
+        <span class="clear" *ngIf="lastname.value" (click)="clearInput('lastname')"></span>
+      </div>
+      <div *ngIf="lastname.errors && (lastname.dirty || lastname.touched )" class="form-error danger">
+        <span *ngIf="lastname.errors.required">Lastname required</span>
+      </div>
+      <div class="input-field primary">
+        <input type="email" id="email" class="text-gray"  (focus)="onFocus(); emailOnFocus = true" (blur)="emailOnFocus = false" formControlName="email" required #emailInput>
+        <label for="email" [ngClass]="{'active': email.value || emailOnFocus}">Email</label>
+        <span class="clear" *ngIf="email.value" (click)="clearInput('email')"></span>
+      </div>
+      <div *ngIf="email.errors && (email.dirty || email.touched )" class="form-error danger">
+        <span *ngIf="email.errors.required">Email required</span>
+        <span *ngIf="email.errors.email">Wrong email format</span>
+      </div>
+      <div class="input-field primary">
+        <input type="email" id="confEmail" class="text-gray"  (focus)="onFocus(); confEmailOnFocus = true" (blur)="confEmailOnFocus = false" formControlName="confEmail" autocomplete="new-password">
+        <label for="confEmail" [ngClass]="{'active': confEmail.value || confEmailOnFocus}">Confirm Email</label>
+        <span class="clear" *ngIf="confEmail.value" (click)="clearInput('confEmail')"></span>
+      </div>
+      <div *ngIf="confEmail.errors && (confEmail.dirty || confEmail.touched )" class="form-error danger">
+        <span *ngIf="confEmail.errors.required">Email required</span>
+      </div>
+      <div *ngIf="myForm.errors" class="form-error danger">
+        <span *ngIf="myForm.errors.mismatch && confEmail.value">Email mismatch</span>
+      </div>
+
+
+    </form>
+  </div>
+  <div class="links">
+      <button class="btn primary tooltip" data-tooltip="Complete all fields" (click)="onSubmit()" [disabled]="myForm.invalid">Save</button>
+      <button class="btn danger" [routerLink]="['../']">Cancel</button>
+  </div>
+</div>

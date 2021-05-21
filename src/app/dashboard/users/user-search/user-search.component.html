@@ -2,14 +2,32 @@
   <h2 class="text-center font-400 primary">Users</h2>
   <div class="input-fields">
       <div class="input-field primary">
-          <input type="text" class="primary" [(ngModel)]="userName" (focus)="onFocus(); inputFocus = true" (blur)="onBlur()" #inputField>
+          <input type="text" class="text-gray" [(ngModel)]="userName" (focus)="onFocus(); inputFocus = true" (blur)="onBlur()" #inputField>
           <label for="name" [ngClass]="{'active': inputFocus}" (click)="onFocus(); inputField.focus()">Search user</label>
           <span *ngIf="userName" class="clear" (click)="clearInput()"></span>
       </div>
-      <div class="search-results" *ngIf="users && users.length>0">
+      <!-- <div class="search-results" *ngIf="users && users.length>0">
           <ul>
-              <li *ngFor="let user of users" [routerLink]="['../userdetails']" [queryParams]="{ name: user.name, id: user.id, email: user.email }">{{user.name}}</li>
+              <li *ngFor="let user of users" [routerLink]="['../userdetails']" [queryParams]="{ firstname: user.firstname, lastname: user.lastname, id: user.id, email: user.email }">{{user.firstname}} {{user.lastname}}</li>
           </ul>
+      </div> -->
+      <div class="userslist" >
+        <ng-container *ngIf="users && users.length>0; else elseTemplate">
+          <div class="user" *ngFor="let user of users; let even = even;" [ngClass]="{ even: even }">
+              <div class="name">
+                  {{user.firstname}} {{user.lastname}}
+              </div>
+              <div class="actions">
+                  <a class="checklist"></a>
+                  <a class="test"></a>
+                  <a class="more" [routerLink]="['../userdetails']" [queryParams]="{ firstname: user.firstname, lastname: user.lastname, id: user.id, email: user.email }"></a>
+              </div>
+          </div>
+        </ng-container>
+        <ng-template #elseTemplate>
+            <h4 class="text-center font-400 primary">No users found</h4>
+        </ng-template>
+          
       </div>
   </div>
 </div>

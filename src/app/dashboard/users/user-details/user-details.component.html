@@ -2,10 +2,13 @@
   <h2 class="text-center font-400 primary">User details</h2>
   <div class="user">
     <div class="user-details txt-gray">
-      <div>{{user.name}}</div>
-      <div>{{user.email}}</div>
+      <div class="name">
+        <div>{{user.firstname}} {{user.lastname}}</div>
+        <div>{{user.email}}</div>
+      </div>
+      
       <div class="edit-delete">
-        <a class="edit tooltip-primary" data-tooltip="Edit" [routerLink]="['../userupdate']" [queryParams]="{ name: user.name, id: user.id, email: user.email }"><span></span></a>
+        <a class="edit tooltip-primary" data-tooltip="Edit" [routerLink]="['../userupdate']" [queryParams]="{ firstname: user.firstname, lastname: user.lastname, id: user.id, email: user.email }"><span></span></a>
         <a class="delete tooltip-danger" data-tooltip="Delete" (click)="openDeleteModal()"><span></span></a>
       </div> 
     </div>

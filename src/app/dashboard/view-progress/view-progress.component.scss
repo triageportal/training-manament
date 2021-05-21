@@ -13,7 +13,6 @@
             align-items: center;
             margin: 40px 0 20px;
             @media (max-width: 767px) {
-                justify-content: space-between;
                 margin: 10px 0;
             }
             .tab {
@@ -25,7 +24,7 @@
                 cursor: pointer;
                 border-bottom: 1px solid #388bc1;
                 @media (max-width: 767px) {
-                    padding: 0;
+                    padding: 5px 12px 0 3px;
                     height: 30px;
                 }
                 &.active {

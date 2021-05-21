@@ -13,7 +13,7 @@
         <span *ngIf="email.errors.email">Wrong email format</span>
       </div>
       <div class="input-field primary">
-        <input type="email" id="confEmail" class="primary"  (focus)="onFocus(); confEmailOnFocus = true" (blur)="confEmailOnFocus = false" formControlName="confEmail" autocomplete="new-password">
+        <input type="email" id="confEmail" class="text-gray"  (focus)="onFocus(); confEmailOnFocus = true" (blur)="confEmailOnFocus = false" formControlName="confEmail" autocomplete="new-password">
         <label for="confEmail" [ngClass]="{'active': confEmail.value || confEmailOnFocus}">Confirm Email</label>
         <span class="clear" *ngIf="confEmail.value" (click)="clearInput('confEmail')"></span>
       </div>
